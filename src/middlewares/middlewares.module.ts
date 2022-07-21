@@ -2,6 +2,6 @@ import { Module } from '@nestjs/common';
 import { DebuggerService } from './debugger/debugger.service';
 
 @Module({
-  providers: [DebuggerService]
+  providers: [DebuggerService],
 })
 export class MiddlewaresModule {}
