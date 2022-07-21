@@ -1,5 +1,5 @@
 import { Inject, Injectable, Logger, OnModuleInit } from '@nestjs/common';
-import { Api, Bot, Composer, Context, RawApi } from 'grammy';
+import { Api, Bot, Composer, Context, Middleware, RawApi } from 'grammy';
 import { GrammyModuleOptions } from './interfaces/grammy-module-options.interface';
 
 @Injectable()
@@ -21,6 +21,10 @@ export class GrammyService<C extends Context> implements OnModuleInit {
     await this.bot.init();
     this.bot.start();
     this.logger.log(`Bot ${this.bot.botInfo.username} started!`);
+  }
+
+  registerMiddleware(middleware: Middleware<C>) {
+    this.bot.use(middleware);
   }
 
   registerComposer(composer: Composer<C>) {

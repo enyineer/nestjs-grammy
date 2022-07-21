@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { GrammyModule } from './grammy/grammy.module';
 import { ComposersModule } from './composers/composers.module';
 import { ConfigModule } from '@nestjs/config';
+import { MiddlewaresModule } from './middlewares/middlewares.module';
 
 const logger: Logger = new Logger('AppModule');
 
@@ -16,6 +17,7 @@ const logger: Logger = new Logger('AppModule');
         logger.error(err.message);
       },
     }),
+    MiddlewaresModule,
     ComposersModule,
   ],
   controllers: [AppController],

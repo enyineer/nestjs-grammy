@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
-import { DebuggerService } from './debugger/debugger.service';
+import { StartService } from './start/start.service';
 
 @Module({
-  providers: [DebuggerService],
+  providers: [StartService],
 })
 export class ComposersModule {}
